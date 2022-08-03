@@ -1,0 +1,39 @@
+Where we left off:
+	- did a lot of debugging, solved some infinite loops
+	- curious about the white queen black queen thing
+	- also I think it crashed when it got checkMate'd
+		- vector index out of range error on checkmate
+
+
+ONCE WE IMPLEMENT THE KING:
+	- we can then start thinking about the game loop
+		- goes in turns 
+		- the players select the highest scoring move
+
+	- The CPU needs to begin it's move thinking by executing the king's logic first
+		- See if we can get the king to the front of pieces vector
+	- On each turn, the CPU first identifies if it's in check by executing the kings logic king.getPossibleMoves()
+		- If in check, the king's logic will handle it
+	- If not in check, the CPU will get the rest of the teamates moves and select the highest scoring move
+	- The CPU executes the move
+
+
+	- in every piece.cpp file we can replace the existing conditionals 
+	for position checking with operation::isInBounds(row, col)
+	Use king.cpp as an example
+	Might not help in every case but it will help reduce on diagonal plays
+
+	passing by reference is faster only if the data passed is larger than the size of a pointer (8 bytes)
+
+Example board layout
+	  0   1   2   3   4   5   6   7
+	 -------------------------------
+  0 |BR1|BK1|BB1|BQ |BK |BB2|BK2|BR2|
+  1 |BP1|BP2|BP3|BP4|BP5|BP6|BP7|BP8|
+  2 |   |   |   |   |   |   |   |   |
+  3	|   |   |   |   |   |   |   |   |
+  4	|   |   |   |   |   |   |   |   |
+  5	|   |   |   |   |   |   |   |   |
+  6	|WP1|WP2|WP3|WP4|WP5|WP6|WP7|WP8|
+  7	|WR1|WK1|WB1|WQ |WK |WB2|WK2|WR2|
+	 -------------------------------
