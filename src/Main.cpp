@@ -85,7 +85,7 @@ int main() {
 	/*gameBoard.movePiece(moves.at(1));
 	gameBoard.printBoard();*/
 
-	//-----------delteing stuff ------------------------------------
+	//-----------deleteing stuff ------------------------------------
 	for (int i = 0; i < whiteMoves.size(); i++) {
 		delete whiteMoves.at(i);
 	}
